@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fifa 13 Random Match Generator</string>
+    <string name="random">Random</string>
+    <string name="vs.">vs.</string>
+    <string name="same_rating">Same rating</string>
+    <string name="select_rating">Select rating</string>
+</resources>
