@@ -1,61 +1,27 @@
-package com.sserrano.fifa13randommatchgenerator
+package com.sserrano.fifa13randommatchgenerator.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.RatingBar
+import com.sserrano.fifa13randommatchgenerator.R
 import com.sserrano.fifa13randommatchgenerator.model.*
 import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.RatingBar.OnRatingBarChangeListener
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    //All teams included in the resource text files will be stored here:
-    private val teams = mutableSetOf<Team>()
-    //In this set will be the teams that match the constraints set by the user:
-    private var filteredTeams: Set<Team> = teams
+    private lateinit var teams: Teams
     private lateinit var team1: Team //The first team that is being shown to the user
     private lateinit var team2: Team //The second team that is being shown to the user
+    //TODO: Create two variables, ratingFilter and matchTypeFilter, where we store the lambdas or conditions that we then pass to the filter function
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        populateTeamsList()
+        teams = Teams(applicationContext)
         setImportantListeners()
         onRandomButtonClick(randomButton)
-    }
-
-    //We create all the teams defined by the information in res/raw and store them in the global
-    //variable "teams"
-    private fun populateTeamsList()
-    {
-        //Important: the first line of every text file must correspond to information of the first
-        //team, the second line to info. of the second team, and so on...
-        val teamNames = getListOfLines(R.raw.team_names)
-        val teamCountries = getListOfLines(R.raw.team_countries)
-        val teamLeagues = getListOfLines(R.raw.team_leagues)
-        val teamHalfStarRatings = getListOfLines(R.raw.team_half_star_ratings)
-        val teamAttackScores = getListOfLines(R.raw.team_attack_scores)
-        val teamMidfieldScores = getListOfLines(R.raw.team_midfield_scores)
-        val teamAverageScores = getListOfLines(R.raw.team_average_scores)
-        val teamDefenseScores = getListOfLines(R.raw.team_defense_scores)
-
-        val numOfTeams = teamNames.size
-
-        //We populate the teams set with Teams
-        for(teamNum in 0 until numOfTeams)
-        {
-            val scores = TeamScores(teamAttackScores[teamNum].toShort(),
-                teamMidfieldScores[teamNum].toShort(), teamDefenseScores[teamNum].toShort(),
-                teamAverageScores[teamNum].toShort())
-            teams.add(
-                Team(teamNames[teamNum], teamCountries[teamNum], teamLeagues[teamNum],
-                    teamHalfStarRatings[teamNum].toShort(), scores)
-            )
-        }
     }
 
     private fun setImportantListeners()
@@ -64,15 +30,8 @@ class MainActivity : AppCompatActivity() {
         customRatingBar.setOnRatingBarChangeListener {
             ratingBar: RatingBar, rating: Float, _: Boolean ->
             if (rating < 0.5f) ratingBar.rating = 0.5f
-            filteredTeams =
-                teams.filter{it.halfStars == (ratingBar.rating * 2).toInt().toShort()}.toSet()
+            teams.setRatingCondition(ratingBar.rating)
         }
-    }
-
-    private fun getListOfLines(resID: Int) : List<String>
-    {
-        val resource = resources.openRawResource(resID)
-        return resource.bufferedReader().useLines {it.toList()}
     }
 
     //Shows the information of the team passed as parameter in the corresponding views of the
@@ -99,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         team2DefenseScoreView.text = team.scores.defense.toString()
     }
 
-    //TODO: Testear que siempre se generen equipos diferentes. Podemos mirar esto seleccionando estrellas con pocos equipos.
     //TODO: ¿Qué pasa si hay muy pocos equipos en determinada categoría? (Testear con dos equipos: debería entrar en un loop infinito) (Testear con tres: debería servir)
     //TODO: ¿Será que testear por referencia si son iguales los equipos funciona más adelante? (Cuando hagamos filtros de lista y eso)
     fun onRandomButtonClick(view: View)
@@ -111,8 +69,8 @@ class MainActivity : AppCompatActivity() {
         var differentRatings: Boolean
         do
         {
-            newTeam1 = filteredTeams.random()
-            newTeam2 = filteredTeams.random()
+            newTeam1 = teams.getRandom()
+            newTeam2 = teams.getRandom()
             bothTeamsSame = newTeam1 === newTeam2
             previousTeamsSame = (this::team1.isInitialized && this::team2.isInitialized) &&
                                         (newTeam1 === team1 && newTeam2 === team2)
@@ -134,6 +92,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             selectRatingSwitch.visibility = INVISIBLE
             customRatingBar.visibility = INVISIBLE
+            teams.setRatingCondition(-1f)
         }
     }
 
@@ -142,11 +101,10 @@ class MainActivity : AppCompatActivity() {
         if(selectRatingSwitch.isChecked)
         {
             customRatingBar.visibility = VISIBLE
-            filteredTeams =
-                teams.filter{it.halfStars == (customRatingBar.rating * 2).toInt().toShort()}.toSet()
+            teams.setRatingCondition(customRatingBar.rating)
         } else {
             customRatingBar.visibility = INVISIBLE
-            filteredTeams = teams
+            teams.setRatingCondition(-1f)
         }
     }
 }

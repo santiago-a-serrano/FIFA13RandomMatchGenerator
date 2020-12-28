@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">Fifa 13 Random Match Generator</string>
+    <string name="app_name">FIFA 13 Random Match Generator</string>
     <string name="random">Random</string>
     <string name="vs.">vs.</string>
     <string name="same_rating">Same rating</string>
     <string name="select_rating">Select rating</string>
+
+    <string-array name="match_types">
+        <item name="all_teams">All teams</item>
+        <item name="international">International</item>
+        <item name="non_international">Non international</item>
+    </string-array>
 </resources>
