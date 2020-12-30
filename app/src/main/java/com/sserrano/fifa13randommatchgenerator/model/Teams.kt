@@ -2,6 +2,7 @@ package com.sserrano.fifa13randommatchgenerator.model
 
 import android.content.Context
 import com.sserrano.fifa13randommatchgenerator.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 //This class will contain all information about teams
 class Teams constructor(private val context: Context)
@@ -10,8 +11,13 @@ class Teams constructor(private val context: Context)
     private val teams = mutableSetOf<Team>()
     //In this set will be the teams that match the conditions set by the user:
     private var filteredTeams: Set<Team> = teams
+
+    //Here will be stored the two last-generated teams (the last-generated match)
+    private lateinit var match: Match
+
     //Conditions set by user will be stored here:
-    private var halfStarCondition: Short = -1; //-1 (or any negative) means there's no condition
+    private var halfStarCondition: Short = -1 //any negative or 0 means there's no condition
+    var sameRatingCondition: Boolean = false
 
     init
     {
@@ -49,7 +55,26 @@ class Teams constructor(private val context: Context)
         return resource.bufferedReader().useLines {it.toList()}
     }
 
-    public fun getRandom() = filteredTeams.random()
+    public fun getRandomMatch(): Match
+    {
+        var newTeam1: Team
+        var newTeam2: Team
+        var bothTeamsSame: Boolean
+        var previousTeamsSame: Boolean
+        var differentRatings: Boolean
+        do
+        {
+            newTeam1 = filteredTeams.random()
+            newTeam2 = filteredTeams.random()
+            bothTeamsSame = newTeam1 === newTeam2
+            previousTeamsSame = (this::match.isInitialized) &&
+                    (newTeam1 === match.team1 && newTeam2 === match.team2)
+            differentRatings = newTeam1.halfStars != newTeam2.halfStars
+        } while (bothTeamsSame || previousTeamsSame ||
+            (differentRatings && sameRatingCondition))
+        match = Match(newTeam1, newTeam2)
+        return match
+    }
 
     public fun setRatingCondition(stars: Float)
     {
