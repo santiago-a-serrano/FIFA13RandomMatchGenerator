@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FIFA 13 Random Match Generator</string>
     <string name="random">Random</string>
-    <string name="vs.">vs.</string>
+    <string name="vs.">VS</string>
     <string name="same_rating">Same rating</string>
     <string name="select_rating">Select rating</string>
     <!--- TODO: Change "FIFA 13" if more FIFA versions are added to the app -->
@@ -14,4 +14,8 @@
         <item name="international">International</item>
         <item name="non_international">Non international</item>
     </string-array>
+
+    <string name="attack_short">ATA</string>
+    <string name="midfield_short">MED</string>
+    <string name="defense_short">DEF</string>
 </resources>
