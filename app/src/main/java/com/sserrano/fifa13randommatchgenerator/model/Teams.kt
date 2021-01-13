@@ -2,7 +2,10 @@ package com.sserrano.fifa13randommatchgenerator.model
 
 import android.content.Context
 import com.sserrano.fifa13randommatchgenerator.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.sserrano.fifa13randommatchgenerator.model.enums.LeagueCondition
+import com.sserrano.fifa13randommatchgenerator.model.exceptions.NoTeamsRandomMatchException
+import com.sserrano.fifa13randommatchgenerator.model.exceptions.OneTeamRandomMatchException
+import com.sserrano.fifa13randommatchgenerator.model.exceptions.RandomMatchException
 
 //This class will contain all information about teams
 class Teams constructor(private val context: Context)
@@ -16,7 +19,18 @@ class Teams constructor(private val context: Context)
     private lateinit var match: Match
 
     //Conditions set by user will be stored here:
-    private var halfStarCondition: Short = -1 //any negative or 0 means there's no condition
+    var halfStarCondition: Short = -1 //any negative or 0 means there's no condition
+        set(condition)
+        {
+            field = condition
+            updateFilteredTeams()
+        }
+    var leagueCondition: LeagueCondition = LeagueCondition.ALL
+        set(condition)
+        {
+            field = condition
+            updateFilteredTeams()
+        }
     var sameRatingCondition: Boolean = false
 
     init
@@ -55,7 +69,18 @@ class Teams constructor(private val context: Context)
         return resource.bufferedReader().useLines {it.toList()}
     }
 
-    public fun getRandomMatch(): Match
+    @Throws(RandomMatchException::class)
+    fun getRandomMatch(): Match
+    {
+        return when(filteredTeams.size)
+        {
+            0 -> throw NoTeamsRandomMatchException()
+            1 -> throw OneTeamRandomMatchException(filteredTeams.elementAt(0))
+            else -> getActualRandomMatch()
+        }
+    }
+
+    private fun getActualRandomMatch(): Match
     {
         var newTeam1: Team
         var newTeam2: Team
@@ -76,17 +101,22 @@ class Teams constructor(private val context: Context)
         return match
     }
 
-    public fun setRatingCondition(stars: Float)
-    {
-        halfStarCondition = (stars * 2).toInt().toShort()
-        updateFilteredTeams()
-    }
-
     private fun updateFilteredTeams()
     {
+        //TODO: Update this for support of other languages (leagues)
+        val internationalInLang = "Internacional"
+
         filteredTeams = if(halfStarCondition > 0)
             teams.filter{it.halfStars == halfStarCondition}.toSet()
         else
             teams
+
+        when(leagueCondition)
+        {
+            LeagueCondition.INTERNATIONAL ->
+                filteredTeams = filteredTeams.filter{it.league == internationalInLang}.toSet()
+            LeagueCondition.NON_INTERNATIONAL ->
+                filteredTeams = filteredTeams.filter{it.league != internationalInLang}.toSet()
+        }
     }
 }
