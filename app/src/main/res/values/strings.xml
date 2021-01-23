@@ -4,6 +4,8 @@
     <string name="vs.">VS</string>
     <string name="same_rating">Same rating</string>
     <string name="select_rating">Select rating</string>
+    <string name="select_as_range">Select as range</string>
+    <string name="to">to</string>
     <!--- TODO: Change "FIFA 13" if more FIFA versions are added to the app -->
     <string name="no_teams_message">No teams in FIFA 13 have the required characteristics</string>
     <string name="only_one_team_message">Only one team in FIFA 13 has the required

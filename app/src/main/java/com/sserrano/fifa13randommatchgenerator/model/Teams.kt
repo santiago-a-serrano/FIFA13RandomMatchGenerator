@@ -6,6 +6,7 @@ import com.sserrano.fifa13randommatchgenerator.model.enums.LeagueCondition
 import com.sserrano.fifa13randommatchgenerator.model.exceptions.NoTeamsRandomMatchException
 import com.sserrano.fifa13randommatchgenerator.model.exceptions.OneTeamRandomMatchException
 import com.sserrano.fifa13randommatchgenerator.model.exceptions.RandomMatchException
+import kotlin.math.min
 
 //This class will contain all information about teams
 class Teams constructor(private val context: Context)
@@ -19,19 +20,47 @@ class Teams constructor(private val context: Context)
     private lateinit var match: Match
 
     //Conditions set by user will be stored here:
-    var halfStarCondition: Short = -1 //any negative or 0 means there's no condition
-        set(condition)
-        {
-            field = condition
-            updateFilteredTeams()
-        }
-    var leagueCondition: LeagueCondition = LeagueCondition.ALL
-        set(condition)
-        {
-            field = condition
-            updateFilteredTeams()
-        }
-    var sameRatingCondition: Boolean = false
+    //Had to use Java setters instead of Kotlin's (had to change other conditions' backing fields)
+    private var halfStarCondition: Short = -1 //any negative or 0 means there's no condition
+    private var leagueCondition: LeagueCondition = LeagueCondition.ALL
+    private var minHalfStarCondition: Short = -1 //any negative or 0 means there's no condition
+    private var maxHalfStarCondition: Short = -1 //any negative or 0 means there's no condition
+    private var sameRatingCondition: Boolean = false
+
+    fun setHalfStarCondition(condition: Short)
+    {
+        halfStarCondition = condition
+        minHalfStarCondition = -1
+        maxHalfStarCondition = -1
+        updateFilteredTeams()
+    }
+
+    fun setLeagueCondition(condition: LeagueCondition)
+    {
+        leagueCondition = condition
+        updateFilteredTeams()
+    }
+
+    fun setMinHalfStarCondition(condition: Short)
+    {
+        minHalfStarCondition = condition
+        halfStarCondition = -1
+        if(maxHalfStarCondition <= 0) maxHalfStarCondition = 10
+        updateFilteredTeams()
+    }
+
+    fun setMaxHalfStarCondition(condition: Short)
+    {
+        maxHalfStarCondition = condition
+        halfStarCondition = -1
+        if(minHalfStarCondition <= 0) minHalfStarCondition = 1
+        updateFilteredTeams()
+    }
+
+    fun setSameRatingCondition(condition: Boolean)
+    {
+        sameRatingCondition = condition
+    }
 
     init
     {
@@ -106,10 +135,22 @@ class Teams constructor(private val context: Context)
         //TODO: Update this for support of other languages (leagues)
         val internationalInLang = "Internacional"
 
-        filteredTeams = if(halfStarCondition > 0)
-            teams.filter{it.halfStars == halfStarCondition}.toSet()
-        else
-            teams
+        if(halfStarCondition > 0)
+        {
+            filteredTeams = teams.filter { it.halfStars == halfStarCondition }.toSet()
+        } else if(minHalfStarCondition > 0 && maxHalfStarCondition > 0)
+        {
+            if(maxHalfStarCondition < minHalfStarCondition)
+            {
+                val temp = maxHalfStarCondition
+                maxHalfStarCondition = minHalfStarCondition
+                minHalfStarCondition = temp
+            }
+            filteredTeams =
+                teams.filter { it.halfStars in minHalfStarCondition..maxHalfStarCondition }.toSet()
+        } else {
+            filteredTeams = teams
+        }
 
         when(leagueCondition)
         {

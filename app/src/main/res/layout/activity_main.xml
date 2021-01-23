@@ -336,4 +336,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Switch
+        android:id="@+id/selectAsRangeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="onSelectAsRangeSwitch"
+        android:text="@string/select_as_range"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customRatingBar"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rangeRatingBarsViewGroup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/customRatingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/customRatingBar">
+
+        <TextView
+            android:id="@+id/toTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/twoRatingBars"
+            app:layout_constraintEnd_toEndOf="@+id/twoRatingBars"
+            app:layout_constraintStart_toStartOf="@+id/twoRatingBars"
+            app:layout_constraintTop_toTopOf="@+id/twoRatingBars"
+            app:layout_constraintVertical_bias="0.41000003" />
+
+        <LinearLayout
+            android:id="@+id/twoRatingBars"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RatingBar
+                android:id="@+id/minRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-16dp"
+                android:layout_marginRight="-16dp"
+                android:rating="3.0"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <RatingBar
+                android:id="@+id/maxRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-16dp"
+                android:layout_marginRight="-16dp"
+                android:rating="4.5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

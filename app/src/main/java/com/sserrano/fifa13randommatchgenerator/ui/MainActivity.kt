@@ -34,7 +34,19 @@ class MainActivity : AppCompatActivity() {
         customRatingBar.setOnRatingBarChangeListener {
             ratingBar: RatingBar, rating: Float, _: Boolean ->
             if (rating < 0.5f) ratingBar.rating = 0.5f
-            teams.halfStarCondition = (ratingBar.rating * 2).toInt().toShort()
+            teams.setHalfStarCondition((ratingBar.rating * 2).toInt().toShort())
+        }
+
+        minRatingBar.setOnRatingBarChangeListener {
+            ratingBar: RatingBar, rating: Float, _: Boolean ->
+            if(rating < 0.5f) ratingBar.rating = 0.5f
+            teams.setMinHalfStarCondition((ratingBar.rating * 2).toInt().toShort())
+        }
+
+        maxRatingBar.setOnRatingBarChangeListener{
+                ratingBar: RatingBar, rating: Float, _: Boolean ->
+            if(rating < 0.5f) ratingBar.rating = 0.5f
+            teams.setMaxHalfStarCondition((ratingBar.rating * 2).toInt().toShort())
         }
 
         matchTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener
@@ -42,13 +54,15 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int,
                 id: Long)
             {
-                teams.leagueCondition = when(id.toInt())
-                {
-                    0 -> LeagueCondition.ALL
-                    1 -> LeagueCondition.INTERNATIONAL
-                    2 -> LeagueCondition.NON_INTERNATIONAL
-                    else -> LeagueCondition.ALL
-                }
+                teams.setLeagueCondition(
+                    when(id.toInt())
+                    {
+                        0 -> LeagueCondition.ALL
+                        1 -> LeagueCondition.INTERNATIONAL
+                        2 -> LeagueCondition.NON_INTERNATIONAL
+                        else -> LeagueCondition.ALL
+                    }
+                )
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -125,28 +139,59 @@ class MainActivity : AppCompatActivity() {
 
     fun onSameRatingSwitch(view: View)
     {
+        rangeRatingBarsViewGroup.visibility = INVISIBLE
+        selectAsRangeSwitch.isChecked = false
+
         if(sameRatingSwitch.isChecked)
         {
-            teams.sameRatingCondition = true
+            teams.setSameRatingCondition(true)
             selectRatingSwitch.isChecked = false
             selectRatingSwitch.visibility = VISIBLE
         } else {
-            teams.sameRatingCondition = false
+            teams.setSameRatingCondition(false)
             selectRatingSwitch.visibility = INVISIBLE
             customRatingBar.visibility = INVISIBLE
-            teams.halfStarCondition = -1
+            selectAsRangeSwitch.visibility = INVISIBLE
+            teams.setHalfStarCondition(-1)
+            teams.setMinHalfStarCondition(-1)
+            teams.setMaxHalfStarCondition(-1)
         }
     }
 
     fun onSelectRatingSwitch(view: View)
     {
+        rangeRatingBarsViewGroup.visibility = INVISIBLE
+        selectAsRangeSwitch.isChecked = false
+
         if(selectRatingSwitch.isChecked)
         {
             customRatingBar.visibility = VISIBLE
-            teams.halfStarCondition = (customRatingBar.rating * 2).toInt().toShort()
+            selectAsRangeSwitch.visibility = VISIBLE
+            teams.setHalfStarCondition((customRatingBar.rating * 2).toInt().toShort())
         } else {
             customRatingBar.visibility = INVISIBLE
-            teams.halfStarCondition = -1
+            selectAsRangeSwitch.visibility = INVISIBLE
+            teams.setHalfStarCondition(-1)
+            teams.setMinHalfStarCondition(-1)
+            teams.setMaxHalfStarCondition(-1)
+        }
+    }
+
+    fun onSelectAsRangeSwitch(view: View)
+    {
+        if(selectAsRangeSwitch.isChecked)
+        {
+            customRatingBar.visibility = INVISIBLE
+            rangeRatingBarsViewGroup.visibility = VISIBLE
+            teams.setHalfStarCondition(-1)
+            teams.setMinHalfStarCondition((minRatingBar.rating * 2).toInt().toShort())
+            teams.setMaxHalfStarCondition((maxRatingBar.rating * 2).toInt().toShort())
+        } else {
+            customRatingBar.visibility = VISIBLE
+            rangeRatingBarsViewGroup.visibility = INVISIBLE
+            teams.setMinHalfStarCondition(-1)
+            teams.setMaxHalfStarCondition(-1)
+            teams.setHalfStarCondition((customRatingBar.rating * 2).toInt().toShort())
         }
     }
 }
