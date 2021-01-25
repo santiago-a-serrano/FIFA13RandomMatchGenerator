@@ -174,6 +174,7 @@ class MainActivity : AppCompatActivity() {
             teams.setHalfStarCondition(-1)
             teams.setMinHalfStarCondition(-1)
             teams.setMaxHalfStarCondition(-1)
+            teams.setSameRatingCondition(true)
         }
     }
 

@@ -32,6 +32,7 @@ class Teams constructor(private val context: Context)
         halfStarCondition = condition
         minHalfStarCondition = -1
         maxHalfStarCondition = -1
+        if (condition > 0) sameRatingCondition = true
         updateFilteredTeams()
     }
 
@@ -46,6 +47,7 @@ class Teams constructor(private val context: Context)
         minHalfStarCondition = condition
         halfStarCondition = -1
         if(maxHalfStarCondition <= 0) maxHalfStarCondition = 10
+        if(condition > 0) sameRatingCondition = false
         updateFilteredTeams()
     }
 
@@ -54,6 +56,7 @@ class Teams constructor(private val context: Context)
         maxHalfStarCondition = condition
         halfStarCondition = -1
         if(minHalfStarCondition <= 0) minHalfStarCondition = 1
+        if(condition > 0) sameRatingCondition = false
         updateFilteredTeams()
     }
 
@@ -140,14 +143,11 @@ class Teams constructor(private val context: Context)
             filteredTeams = teams.filter { it.halfStars == halfStarCondition }.toSet()
         } else if(minHalfStarCondition > 0 && maxHalfStarCondition > 0)
         {
-            if(maxHalfStarCondition < minHalfStarCondition)
-            {
-                val temp = maxHalfStarCondition
-                maxHalfStarCondition = minHalfStarCondition
-                minHalfStarCondition = temp
-            }
+            val range = if(minHalfStarCondition > maxHalfStarCondition)
+                maxHalfStarCondition..minHalfStarCondition
+                else minHalfStarCondition..maxHalfStarCondition
             filteredTeams =
-                teams.filter { it.halfStars in minHalfStarCondition..maxHalfStarCondition }.toSet()
+                teams.filter { it.halfStars in range }.toSet()
         } else {
             filteredTeams = teams
         }
