@@ -147,11 +147,14 @@ class MainActivity : AppCompatActivity() {
             teams.setSameRatingCondition(true)
             selectRatingSwitch.isChecked = false
             selectRatingSwitch.visibility = VISIBLE
+            selectRatingTextView.visibility = VISIBLE
         } else {
             teams.setSameRatingCondition(false)
             selectRatingSwitch.visibility = INVISIBLE
+            selectRatingTextView.visibility = INVISIBLE
             customRatingBar.visibility = INVISIBLE
             selectAsRangeSwitch.visibility = INVISIBLE
+            selectRatingAsRangeTextView.visibility = INVISIBLE
             teams.setHalfStarCondition(-1)
             teams.setMinHalfStarCondition(-1)
             teams.setMaxHalfStarCondition(-1)
@@ -167,10 +170,12 @@ class MainActivity : AppCompatActivity() {
         {
             customRatingBar.visibility = VISIBLE
             selectAsRangeSwitch.visibility = VISIBLE
+            selectRatingAsRangeTextView.visibility = VISIBLE
             teams.setHalfStarCondition((customRatingBar.rating * 2).toInt().toShort())
         } else {
             customRatingBar.visibility = INVISIBLE
             selectAsRangeSwitch.visibility = INVISIBLE
+            selectRatingAsRangeTextView.visibility = INVISIBLE
             teams.setHalfStarCondition(-1)
             teams.setMinHalfStarCondition(-1)
             teams.setMaxHalfStarCondition(-1)

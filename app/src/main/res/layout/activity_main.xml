@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <ImageView
+        android:id="@+id/whiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/sameRatingSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/background_light" />
+
     <LinearLayout
         android:id="@+id/team1Layout"
         android:layout_width="wrap_content"
@@ -16,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintVertical_bias="0.15">
 
         <ImageView
             android:id="@+id/team1LogoView"
@@ -27,6 +38,7 @@
 
         <RatingBar
             android:id="@+id/team1RatingView"
+            style="@style/Widget.AppCompat.RatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="-32dp"
@@ -51,19 +63,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/attack_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/team1MidfieldText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="7dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/midfield_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
 
             <TextView
@@ -72,8 +88,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/defense_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -90,6 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/background_dark"
                 tools:text="86" />
 
             <TextView
@@ -99,6 +119,8 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/background_dark"
                 tools:text="84" />
 
             <TextView
@@ -107,6 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/background_dark"
                 tools:text="84" />
         </LinearLayout>
 
@@ -114,7 +138,10 @@
             android:id="@+id/team1NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
             android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="FC Barcelona" />
 
@@ -123,6 +150,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_dark"
             tools:text="España" />
 
         <TextView
@@ -130,6 +159,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_dark"
             tools:text="Liga BBVA" />
     </LinearLayout>
 
@@ -143,7 +174,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintVertical_bias="0.15">
 
         <ImageView
             android:id="@+id/team2LogoView"
@@ -154,6 +185,7 @@
 
         <RatingBar
             android:id="@+id/team2RatingView"
+            style="@style/Widget.AppCompat.RatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="-32dp"
@@ -178,19 +210,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/attack_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/team2MidfieldText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="7dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/midfield_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
 
             <TextView
@@ -199,8 +235,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/defense_short"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -217,7 +255,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
-                tools:text="84" />
+                android:fontFamily="@font/roboto_medium"
+                tools:text="84"
+                android:textColor="@android:color/background_dark" />
 
             <TextView
                 android:id="@+id/team2MidfieldScoreView"
@@ -226,6 +266,8 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/background_dark"
                 tools:text="85" />
 
             <TextView
@@ -234,6 +276,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/background_dark"
                 tools:text="82" />
         </LinearLayout>
 
@@ -241,7 +285,10 @@
             android:id="@+id/team2NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
             android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="Real Madrid" />
 
@@ -250,6 +297,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_dark"
             tools:text="España" />
 
         <TextView
@@ -257,18 +306,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_dark"
             tools:text="Liga BBVA" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/randomButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@color/buttons"
+        android:fontFamily="@font/roboto_black"
         android:onClick="onRandomButtonClick"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:text="@string/random"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -277,8 +335,10 @@
         android:id="@+id/vsText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
         android:text="@string/vs."
         android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/team2Layout"
         app:layout_constraintEnd_toStartOf="@+id/team2Layout"
@@ -288,33 +348,35 @@
 
     <Switch
         android:id="@+id/sameRatingSwitch"
-        android:layout_width="wrap_content"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:onClick="onSameRatingSwitch"
-        android:text="@string/same_rating"
         app:layout_constraintBottom_toTopOf="@+id/selectRatingSwitch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/customRatingBar" />
 
     <Switch
         android:id="@+id/selectRatingSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:onClick="onSelectRatingSwitch"
-        android:text="@string/select_rating"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/customRatingBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/customRatingBar"
         tools:visibility="visible" />
 
     <RatingBar
         android:id="@+id/customRatingBar"
+        style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
+        android:fontFamily="@font/roboto_condensed_bold"
         android:rating="4.5"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/randomButton"
@@ -325,13 +387,18 @@
 
     <Spinner
         android:id="@+id/matchTypeSpinner"
-        android:layout_width="match_parent"
+        style="@style/MatchTypeSpinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorPrimaryDark"
         android:entries="@array/match_types"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -340,12 +407,12 @@
         android:id="@+id/selectAsRangeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:onClick="onSelectAsRangeSwitch"
-        android:text="@string/select_as_range"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/customRatingBar"
         app:layout_constraintTop_toBottomOf="@+id/customRatingBar"
         tools:visibility="visible" />
 
@@ -363,50 +430,83 @@
             android:id="@+id/toTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_bold"
             android:text="@string/to"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/twoRatingBars"
-            app:layout_constraintEnd_toEndOf="@+id/twoRatingBars"
-            app:layout_constraintStart_toStartOf="@+id/twoRatingBars"
-            app:layout_constraintTop_toTopOf="@+id/twoRatingBars"
-            app:layout_constraintVertical_bias="0.41000003" />
-
-        <LinearLayout
-            android:id="@+id/twoRatingBars"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45" />
 
-            <RatingBar
-                android:id="@+id/minRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-16dp"
-                android:layout_marginRight="-16dp"
-                android:rating="3.0"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:visibility="visible"
-                tools:visibility="visible" />
+        <RatingBar
+            android:id="@+id/minRatingBar"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="3.0"
+            android:scaleX=".6"
+            android:scaleY=".6"
+            android:translationX="32dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/toTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-            <RatingBar
-                android:id="@+id/maxRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-16dp"
-                android:layout_marginRight="-16dp"
-                android:rating="4.5"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:visibility="visible"
-                tools:visibility="visible" />
+        <RatingBar
+            android:id="@+id/maxRatingBar"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="4.5"
+            android:scaleX=".6"
+            android:scaleY=".6"
+            android:translationX="-32dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/toTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/sameRatingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/same_rating"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/sameRatingSwitch"
+        app:layout_constraintStart_toStartOf="@+id/customRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/sameRatingSwitch" />
+
+    <TextView
+        android:id="@+id/selectRatingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/select_rating"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/selectRatingSwitch"
+        app:layout_constraintStart_toStartOf="@+id/customRatingBar"
+        app:layout_constraintTop_toBottomOf="@+id/sameRatingSwitch"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/selectRatingAsRangeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/select_as_range"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/selectAsRangeSwitch"
+        app:layout_constraintStart_toStartOf="@+id/customRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/selectAsRangeSwitch"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
