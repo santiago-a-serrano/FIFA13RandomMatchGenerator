@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <ImageView
-        android:id="@+id/whiteBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/sameRatingSwitch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/background_light" />
-
     <LinearLayout
         android:id="@+id/team1Layout"
         android:layout_width="wrap_content"
@@ -27,14 +16,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintVertical_bias="0.175">
 
         <ImageView
             android:id="@+id/team1LogoView"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_marginBottom="8dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_marginBottom="4dp"
+            app:srcCompat="@android:drawable/ic_menu_report_image"
+            tools:srcCompat="@android:drawable/ic_menu_report_image" />
 
         <RatingBar
             android:id="@+id/team1RatingView"
@@ -66,7 +56,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/attack_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
 
             <TextView
@@ -79,7 +69,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/midfield_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
 
             <TextView
@@ -91,7 +81,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/defense_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -109,7 +99,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 tools:text="86" />
 
             <TextView
@@ -120,7 +110,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 tools:text="84" />
 
             <TextView
@@ -130,7 +120,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 tools:text="84" />
         </LinearLayout>
 
@@ -140,7 +130,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_black"
             android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:text="FC Barcelona" />
@@ -151,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             tools:text="España" />
 
         <TextView
@@ -160,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             tools:text="Liga BBVA" />
     </LinearLayout>
 
@@ -174,14 +164,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintVertical_bias="0.175">
 
         <ImageView
             android:id="@+id/team2LogoView"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_marginBottom="8dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_marginBottom="4dp"
+            app:srcCompat="@android:drawable/ic_menu_report_image"
+            tools:srcCompat="@android:drawable/ic_menu_report_image" />
 
         <RatingBar
             android:id="@+id/team2RatingView"
@@ -213,7 +204,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/attack_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
 
             <TextView
@@ -226,7 +217,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/midfield_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
 
             <TextView
@@ -238,7 +229,7 @@
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/defense_short"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -256,8 +247,8 @@
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                tools:text="84"
-                android:textColor="@android:color/background_dark" />
+                android:textColor="@android:color/background_light"
+                tools:text="84" />
 
             <TextView
                 android:id="@+id/team2MidfieldScoreView"
@@ -267,7 +258,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 tools:text="85" />
 
             <TextView
@@ -277,7 +268,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@android:color/background_dark"
+                android:textColor="@android:color/background_light"
                 tools:text="82" />
         </LinearLayout>
 
@@ -287,7 +278,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_black"
             android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:text="Real Madrid" />
@@ -298,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             tools:text="España" />
 
         <TextView
@@ -307,7 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
             tools:text="Liga BBVA" />
 
     </LinearLayout>
@@ -338,7 +329,7 @@
         android:fontFamily="@font/roboto_medium"
         android:text="@string/vs."
         android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/background_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/team2Layout"
         app:layout_constraintEnd_toStartOf="@+id/team2Layout"
@@ -393,11 +384,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/match_type_round"
         android:entries="@array/match_types"
         android:fontFamily="@font/roboto_condensed_bold"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="3dp"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
