@@ -90,7 +90,7 @@ class Teams constructor(private val context: Context)
                 teamAverageScores[teamNum].toShort())
             teams.add(
                 Team(teamNames[teamNum], teamCountries[teamNum], teamLeagues[teamNum],
-                    teamHalfStarRatings[teamNum].toShort(), scores)
+                    teamHalfStarRatings[teamNum].toShort(), scores, teamNum.toShort())
             )
         }
     }

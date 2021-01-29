@@ -8,37 +8,37 @@
 
     <LinearLayout
         android:id="@+id/team1Layout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vsText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175">
+        app:layout_constraintVertical_bias=".20">
 
         <ImageView
             android:id="@+id/team1LogoView"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_marginBottom="4dp"
             app:srcCompat="@android:drawable/ic_menu_report_image"
-            tools:srcCompat="@android:drawable/ic_menu_report_image" />
+            tools:srcCompat="@mipmap/id_0" />
 
         <RatingBar
             android:id="@+id/team1RatingView"
-            style="@style/Widget.AppCompat.RatingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-32dp"
-            android:layout_marginTop="-9dp"
-            android:layout_marginEnd="-32dp"
-            android:layout_marginBottom="-12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:clickable="false"
             android:isIndicator="true"
-            android:scaleX="0.5"
-            android:scaleY="0.5" />
+            android:scaleX="1.5"
+            android:scaleY="1.5" />
 
         <LinearLayout
             android:id="@+id/team1ScoresTextViewGroup"
@@ -128,10 +128,12 @@
             android:id="@+id/team1NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:fontFamily="@font/roboto_black"
+            android:lines="1"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             tools:text="FC Barcelona" />
 
@@ -142,6 +144,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@android:color/background_light"
+            android:textSize="12sp"
             tools:text="España" />
 
         <TextView
@@ -151,42 +154,43 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@android:color/background_light"
+            android:textSize="12sp"
             tools:text="Liga BBVA" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/team2Layout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vsText"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175">
+        app:layout_constraintVertical_bias=".20">
 
         <ImageView
             android:id="@+id/team2LogoView"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_marginBottom="4dp"
             app:srcCompat="@android:drawable/ic_menu_report_image"
-            tools:srcCompat="@android:drawable/ic_menu_report_image" />
+            tools:srcCompat="@mipmap/id_1" />
 
         <RatingBar
             android:id="@+id/team2RatingView"
-            style="@style/Widget.AppCompat.RatingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-32dp"
-            android:layout_marginTop="-9dp"
-            android:layout_marginEnd="-32dp"
-            android:layout_marginBottom="-12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:clickable="false"
             android:isIndicator="true"
-            android:scaleX="0.5"
-            android:scaleY="0.5" />
+            android:scaleX="1.5"
+            android:scaleY="1.5" />
 
         <LinearLayout
             android:id="@+id/team2ScoresTextViewGroup"
@@ -276,10 +280,12 @@
             android:id="@+id/team2NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:fontFamily="@font/roboto_black"
+            android:lines="1"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             tools:text="Real Madrid" />
 
@@ -290,6 +296,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@android:color/background_light"
+            android:textSize="12sp"
             tools:text="España" />
 
         <TextView
@@ -299,6 +306,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@android:color/background_light"
+            android:textSize="12sp"
             tools:text="Liga BBVA" />
 
     </LinearLayout>
@@ -324,18 +332,18 @@
 
     <TextView
         android:id="@+id/vsText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/vs."
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/team2Layout"
-        app:layout_constraintEnd_toStartOf="@+id/team2Layout"
-        app:layout_constraintStart_toEndOf="@+id/team1Layout"
-        app:layout_constraintTop_toTopOf="@+id/team1Layout"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/team1Layout" />
 
     <Switch
         android:id="@+id/sameRatingSwitch"

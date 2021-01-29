@@ -1,5 +1,7 @@
 package com.sserrano.fifa13randommatchgenerator.ui
 
+import android.content.res.Resources
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -91,6 +93,9 @@ class MainActivity : AppCompatActivity() {
         team1AttackScoreView.text = team.scores.attack.toString()
         team1MidfieldScoreView.text = team.scores.midfield.toString()
         team1DefenseScoreView.text = team.scores.defense.toString()
+        val logoResId = resources.getIdentifier("id_" + team.id.toString(),
+            "mipmap", packageName)
+        team1LogoView.setImageResource(logoResId)
     }
 
     private fun displayTeam2(team: Team)
@@ -103,6 +108,9 @@ class MainActivity : AppCompatActivity() {
         team2AttackScoreView.text = team.scores.attack.toString()
         team2MidfieldScoreView.text = team.scores.midfield.toString()
         team2DefenseScoreView.text = team.scores.defense.toString()
+        val logoResId = resources.getIdentifier("id_" + team.id.toString(),
+            "mipmap", packageName)
+        team2LogoView.setImageResource(logoResId)
     }
 
     private fun displayMatch(match: Match)
