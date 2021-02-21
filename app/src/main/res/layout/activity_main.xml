@@ -125,9 +125,29 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/team1CountryView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp"
+            tools:text="Spain" />
+
+        <TextView
+            android:id="@+id/team1LeagueView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp"
+            tools:text="Liga BBVA" />
+
+        <TextView
             android:id="@+id/team1NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/roboto_black"
             android:lines="1"
@@ -136,26 +156,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             tools:text="FC Barcelona" />
-
-        <TextView
-            android:id="@+id/team1CountryView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp"
-            tools:text="España" />
-
-        <TextView
-            android:id="@+id/team1LeagueView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp"
-            tools:text="Liga BBVA" />
     </LinearLayout>
 
     <LinearLayout
@@ -277,9 +277,29 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/team2CountryView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp"
+            tools:text="Spain" />
+
+        <TextView
+            android:id="@+id/team2LeagueView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp"
+            tools:text="Liga BBVA" />
+
+        <TextView
             android:id="@+id/team2NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/roboto_black"
             android:lines="1"
@@ -288,26 +308,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             tools:text="Real Madrid" />
-
-        <TextView
-            android:id="@+id/team2CountryView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp"
-            tools:text="España" />
-
-        <TextView
-            android:id="@+id/team2LeagueView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp"
-            tools:text="Liga BBVA" />
 
     </LinearLayout>
 

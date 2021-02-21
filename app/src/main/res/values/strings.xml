@@ -17,7 +17,7 @@
         <item name="non_international">Non international</item>
     </string-array>
 
-    <string name="attack_short">ATA</string>
-    <string name="midfield_short">MED</string>
+    <string name="attack_short">ATT</string>
+    <string name="midfield_short">MID</string>
     <string name="defense_short">DEF</string>
 </resources>
