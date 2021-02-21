@@ -136,7 +136,7 @@ class Teams constructor(private val context: Context)
     private fun updateFilteredTeams()
     {
         //TODO: Update this for support of other languages (leagues)
-        val internationalInLang = "Internacional"
+        val internationalInLang = "International"
 
         if(halfStarCondition > 0)
         {
